@@ -1,6 +1,6 @@
 # .NET 6 Web API
 
-This is a boilerplate template for building / deploying a .NET Core Web API microservice on Kubernetes.
+This is a boilerplate template for building / deploying a .NET Core Web API on Kubernetes.
 
 ## Versioning
 | GitHub Release | .NET Core Version | Diagnostics HealthChecks Version |
@@ -38,7 +38,7 @@ This is a boilerplate template for building / deploying a .NET Core Web API micr
 
 - `Dockerfile` is .NET Core Web API Multistage Dockerfile (following Docker Best Practices)
 - `appsettings.Development.json` is .NET Core Web API development environment config
-- `kubenertes` folder will contain Kubernetes manifests (deployment, service)
+- `kubenertes` folder will contain Kubernetes yaml files (deployment, statefulstes, services)
 - `Program.cs` is .NET Core Web API environment variable mapping config and .NET Core Web API startup & path routing config 
 
 ## Setting Up
