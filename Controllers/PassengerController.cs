@@ -35,7 +35,7 @@ namespace Titanic.Controllers
         
 
         // GET /passengers
-        [HttpGet("name")]
+        [HttpGet("search")]
         public async Task<IEnumerable<PassengerDto>> GetPassengersAsync(string fullname = null)
         {
             var passengers = (await _ipassengersRepository.GetPassengersAsync())
