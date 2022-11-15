@@ -16,9 +16,9 @@ namespace Titanic.Controllers
     public class PassengersController : ControllerBase
     {
         private readonly IPassengersRepository _ipassengersRepository;
-        //private readonly ILogger<PassengersController> logger;
+        private readonly ILogger<PassengersController> logger;
 
-        public PassengersController(IPassengersRepository ipassengersRepository)//, ILogger<PassengersController> logger)
+        public PassengersController(IPassengersRepository ipassengersRepository, ILogger<PassengersController> logger)
         {
             _ipassengersRepository = ipassengersRepository;
             //this.logger = logger;
@@ -46,7 +46,7 @@ namespace Titanic.Controllers
                 passengers = passengers.Where(item => item.FullName.Contains(fullname, StringComparison.OrdinalIgnoreCase));
             }
 
-            //logger.LogInformation($"{DateTime.UtcNow.ToString("hh:mm:ss")}: Retrieved {passengers.Count()} passengers");
+            logger.LogInformation($"{DateTime.UtcNow.ToString("hh:mm:ss")}: Retrieved {passengers.Count()} passengers");
 
             return passengers;
         }
