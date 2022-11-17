@@ -12,21 +12,30 @@ spec:
         app: titanic
     spec:
       containers:
-      - name: titanic
-        image: cheloghm/titanic:v8
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-        - containerPort: 80
-        env:
-        - name: MongoDbSettings__Host
-          value: mongodb-services
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 80
+        - name: titanic
+          image: cheloghm/titanic:v9
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
+          env:
+            - name: MongoDbSettings__Host
+              value: mongodb-service
+            - name: MongodbSettings__Password
+              valueFrom:
+                secretKeyRef:
+                  name: titanic-secrets
+                  key: mongodb-password
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: 80
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 80
 
 ---
 apiVersion: v1
@@ -38,7 +47,5 @@ spec:
   selector:
     app: titanic
   ports:
-  - port: 80
-    targetPort: 80
-
-
+    - port: 80
+      targetPort: 80

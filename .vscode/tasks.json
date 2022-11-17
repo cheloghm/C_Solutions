@@ -83,7 +83,8 @@
             "dockerRun": {},
             "netCore": {
                 "appProject": "${workspaceFolder}/C_Solution.csproj",
-                "enableDebugging": true
+                "enableDebugging": true,
+                "configureSsl": false
             }
         },
         {

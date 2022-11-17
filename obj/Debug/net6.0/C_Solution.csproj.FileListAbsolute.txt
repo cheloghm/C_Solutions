@@ -36,3 +36,6 @@
 /home/cheloghm/learn/ci-cd/C_Solution/bin/Debug/net6.0/runtimes/linux/native/libmongocrypt.so
 /home/cheloghm/learn/ci-cd/C_Solution/bin/Debug/net6.0/runtimes/osx/native/libmongocrypt.dylib
 /home/cheloghm/learn/ci-cd/C_Solution/bin/Debug/net6.0/runtimes/win/native/mongocrypt.dll
+/home/cheloghm/learn/ci-cd/C_Solution/bin/Debug/net6.0/HealthChecks.MongoDb.dll
+/home/cheloghm/learn/ci-cd/C_Solution/bin/Debug/net6.0/Microsoft.Extensions.Diagnostics.HealthChecks.dll
+/home/cheloghm/learn/ci-cd/C_Solution/bin/Debug/net6.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll

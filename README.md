@@ -56,6 +56,21 @@ followed by
 $ dotnet restore
 ```
 
+## Running the database in dev enviromnent.
+```sh
+$ docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db -e MONGO_INITDB_ROOT_USERNAME=mongoadmin -e MONGO_INITDB_ROOT_PASSWORD=pass1234 --network=titanic mongo
+```
+Running the Titanic app in dev environment.
+docker run -it --rm -p 8282:80 -e MongoDbSettings:Host=mongo -e MongoDbSettings:Password=pass1234 --network=titanic cheloghm/titanic:v9
+
+To run in a K8s cluster
+Ensure you create the secret: kubectl create secret generic titanic-secrets --from-literal=mongodb-password='pass1234'
+## Checking the Readiness and Liveness of the API.
+To check if the API is live
+url/healt/live
+To check is the database is ready to serve requests
+url/healt/ready
+
 ## Deploying a .NET Core Web API microservice on Kubernetes
 
 ### Prerequisite:
