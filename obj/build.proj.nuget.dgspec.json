@@ -1,0 +1,48 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/cheloghm/learn/ci-cd/C_Solution/build.proj": {}
+  },
+  "projects": {
+    "/home/cheloghm/learn/ci-cd/C_Solution/build.proj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/cheloghm/learn/ci-cd/C_Solution/build.proj",
+        "projectName": "build",
+        "projectPath": "/home/cheloghm/learn/ci-cd/C_Solution/build.proj",
+        "packagesPath": "/home/cheloghm/.nuget/packages/",
+        "outputPath": "/home/cheloghm/learn/ci-cd/C_Solution/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/cheloghm/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net45"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net45": {
+            "targetAlias": "net45",
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net45": {
+          "targetAlias": "net45",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.2, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.403/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

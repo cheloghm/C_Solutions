@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "CyDOiQK64rBloWSUXLYYwuVTxavZBrZezdlB1vpddWw=",
+  "Source": "Titanic.Api",
+  "BasePath": "_content/Titanic.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
