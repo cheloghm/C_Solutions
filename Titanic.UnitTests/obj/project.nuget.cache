@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "374PrnicpWkl1a4aWgSWfopCJenaamKP64pIHqI7u05X/UpyBlYmFzdI/otYGRFYmP0fCuDNmfFzLzhVRAZ8aQ==",
+  "dgSpecHash": "KQQPWU/p/mRuM94A6MVJT3uJMq6nT3UK6MVAOT9ruLzMQ85sLDPrn2p2QjQ5birhAlCqhqAIWCADNXoRJ29m4w==",
   "success": true,
   "projectFilePath": "/home/cheloghm/learn/ci-cd/C_Solution/Titanic.UnitTests/Titanic.UnitTests.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "/home/cheloghm/.nuget/packages/castle.core/5.1.0/castle.core.5.1.0.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/coverlet.collector/3.1.2/coverlet.collector.3.1.2.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/dnsclient/1.6.1/dnsclient.1.6.1.nupkg.sha512",
+    "/home/cheloghm/.nuget/packages/fluentassertions/6.8.0/fluentassertions.6.8.0.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/microsoft.codecoverage/17.1.0/microsoft.codecoverage.17.1.0.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/microsoft.csharp/4.0.1/microsoft.csharp.4.0.1.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
@@ -62,6 +63,7 @@
     "/home/cheloghm/.nuget/packages/system.buffers/4.5.1/system.buffers.4.5.1.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/system.collections/4.3.0/system.collections.4.3.0.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/system.collections.concurrent/4.3.0/system.collections.concurrent.4.3.0.nupkg.sha512",
+    "/home/cheloghm/.nuget/packages/system.configuration.configurationmanager/4.4.0/system.configuration.configurationmanager.4.4.0.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/system.console/4.3.0/system.console.4.3.0.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/system.diagnostics.debug/4.3.0/system.diagnostics.debug.4.3.0.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/system.diagnostics.diagnosticsource/4.3.0/system.diagnostics.diagnosticsource.4.3.0.nupkg.sha512",
@@ -107,6 +109,7 @@
     "/home/cheloghm/.nuget/packages/system.security.cryptography.encoding/4.3.0/system.security.cryptography.encoding.4.3.0.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/system.security.cryptography.openssl/4.3.0/system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/system.security.cryptography.primitives/4.3.0/system.security.cryptography.primitives.4.3.0.nupkg.sha512",
+    "/home/cheloghm/.nuget/packages/system.security.cryptography.protecteddata/4.4.0/system.security.cryptography.protecteddata.4.4.0.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/system.security.cryptography.x509certificates/4.3.0/system.security.cryptography.x509certificates.4.3.0.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/system.security.principal.windows/5.0.0/system.security.principal.windows.5.0.0.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/system.text.encoding/4.3.0/system.text.encoding.4.3.0.nupkg.sha512",

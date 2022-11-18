@@ -77,12 +77,12 @@ namespace Titanic.UnitTests
             // Arrange
             var allPassengers = new[]
             {
-                new Passenger(){ Name = "Potion"},
-                new Passenger(){ Name = "Antidote"},
-                new Passenger(){ Name = "Hi-Potion"}
+                new Passenger(){ FullName = "Jack"},
+                new Passenger(){ FullName = "Rose"},
+                new Passenger(){ FullName = "Soung"}
             };
 
-            var nameToMatch = "Potion";
+            var nameToMatch = "Jack";
 
             repositoryStub.Setup(repo => repo.GetPassengersAsync())
                 .ReturnsAsync(allPassengers);
@@ -94,7 +94,7 @@ namespace Titanic.UnitTests
 
             // Assert
             foundPassengers.Should().OnlyContain(
-                passenger => passenger.Name == allPassengers[0].Name || passenger.Name == allPassengers[2].Name
+                passenger => passenger.FullName == allPassengers[0].FullName || passenger.FullName == allPassengers[2].FullName
             );
         }
 
@@ -103,9 +103,14 @@ namespace Titanic.UnitTests
         {
             // Arrange
             var passengerToCreate = new CreatePassengerDto(
+                1,
+                3,
                 Guid.NewGuid().ToString(),
-                Guid.NewGuid().ToString(),
-                rand.Next(1000));
+                "female",
+                35,
+                1,
+                0,
+                20000);
 
             var controller = new PassengersController(repositoryStub.Object, loggerStub.Object);
 
@@ -119,7 +124,6 @@ namespace Titanic.UnitTests
                 options => options.ComparingByMembers<PassengerDto>().ExcludingMissingMembers()
             );
             createdPassenger.Id.Should().NotBeEmpty();
-            createdPassenger.CreatedDate.Should().BeCloseTo(DateTimeOffset.UtcNow, 1000);
         }
 
         [Fact]
@@ -132,9 +136,14 @@ namespace Titanic.UnitTests
 
             var passengerId = existingPassenger.Id;
             var passengerToUpdate = new UpdatePassengerDto(
+                1,
+                3,
                 Guid.NewGuid().ToString(),
-                Guid.NewGuid().ToString(),
-                existingPassenger.Price + 3
+                "female",
+                35,
+                1,
+                0,
+                20000
             );
 
             var controller = new PassengersController(repositoryStub.Object, loggerStub.Object);
@@ -168,9 +177,14 @@ namespace Titanic.UnitTests
             return new()
             {
                 Id = Guid.NewGuid(),
-                Name = Guid.NewGuid().ToString(),
-                Price = rand.Next(1000),
-                CreatedDate = DateTimeOffset.UtcNow
+                FullName = Guid.NewGuid().ToString(),
+                Survived = 0,
+                Pclass = 2,
+                Sex = "male",
+                Age = 20,
+                Siblings_Spouses_Aboard = 1,
+                Parents_Children_Aboard = 3,
+                Fare = 50000
             };
         }
     }

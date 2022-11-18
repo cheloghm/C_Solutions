@@ -21,7 +21,7 @@ namespace Titanic.Api.Controllers
         public PassengersController(IPassengersRepository ipassengersRepository, ILogger<PassengersController> logger)
         {
             _ipassengersRepository = ipassengersRepository;
-            //this.logger = logger;
+            this.logger = logger;
         }
 
         // GET /passengers
