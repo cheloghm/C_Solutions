@@ -9,33 +9,47 @@ This is a boilerplate template for building / deploying a .NET Core Web API on K
 
 ## Project Structure
 ```
-├── appsettings.Development.json
-├── appsettings.json
-├── bin
-├── Controllers
-│   └── PassengerController.cs
-├── Titanic.Api.csproj
-├── Dockerfile
-├── Dtos.cs
-├── Extensions.cs
-├── kubernetes
-│   ├── mongodb.yaml
-│   └── titanic.yaml
-├── Models
-│   └── Passenger.cs
+.
+├── build.proj
+├── docker-compose.debug.yml
+├── docker-compose.yml
 ├── obj
-├── Program.cs
-├── Properties
-│   └── launchSettings.json
 ├── README.md
-├── Repositories
-│   ├── InMemPassengersRepository.cs
-│   ├── IPassengersRepository.cs
-│   └── MongoDbPassengersRepository.cs
-└── Settings
-    └── MongoDbSettings.cs
+├── Titanic.Api
+│   ├── appsettings.Development.json
+│   ├── appsettings.json
+│   ├── bin
+│   ├── Controllers
+│   │   └── PassengerController.cs
+│   ├── Dockerfile
+│   ├── Dtos.cs
+│   ├── Extensions.cs
+│   ├── kubernetes
+│   │   ├── mongodb.yaml
+│   │   └── titanic.yaml
+│   ├── Models
+│   │   └── Passenger.cs
+│   ├── obj
+│   ├── Program.cs
+│   ├── Properties
+│   │   └── launchSettings.json
+│   ├── Repositories
+│   │   ├── InMemPassengersRepository.cs
+│   │   ├── IPassengersRepository.cs
+│   │   └── MongoDbPassengersRepository.cs
+│   ├── Settings
+│   │   └── MongoDbSettings.cs
+│   └── Titanic.Api.csproj
+├── titanic.csv
+└── Titanic.UnitTests
+    ├── bin
+    ├── obj
+    ├── PassengerControllerTests.cs
+    ├── Titanic.UnitTests.csproj
+    └── Usings.cs
 ```
 
+- The `docker-compose.yml` is for building both db and api.
 - `Dockerfile` is .NET Core Web API Multistage Dockerfile (following Docker Best Practices)
 - `appsettings.Development.json` is .NET Core Web API development environment config
 - `kubenertes` folder will contain Kubernetes yaml files (deployment, statefulstes, services)
@@ -53,7 +67,7 @@ $ cd C_Solution
 followed by
 
 ```sh
-$ dotnet restore
+$ docker-compose up -d
 ```
 
 ## Running the database in dev enviromnent.
@@ -65,6 +79,7 @@ docker run -it --rm -p 8282:80 -e MongoDbSettings:Host=mongo -e MongoDbSettings:
 
 To run in a K8s cluster
 Ensure you create the secret: kubectl create secret generic titanic-secrets --from-literal=mongodb-password='pass1234'
+
 ## Checking the Readiness and Liveness of the API.
 To check if the API is live
 url/healt/live
@@ -80,9 +95,10 @@ url/healt/ready
 To deploy the app on Kubernetes, run following command:
 
 ```sh
+$ cd Titanic.Api/kubernetes/
 $ kubectl apply -f kubernetes/titanic.yaml
 $ kubectl apply -f kubernetes/mongodb.yaml
 ```
 
-More instructions on that coming soon.
+More information on that coming soon.
 
