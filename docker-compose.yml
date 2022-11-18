@@ -1,0 +1,32 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
+
+version: '3.4'
+
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+    - MONGO_INITDB_ROOT_USERNAME=$MONGODB_USER
+    - MONGO_INITDB_ROOT_PASSWORD=$MONGODB_PASSWORD
+    ports:
+      - 27017:27017
+
+
+  titani.api:
+    image: cheloghm/titanic:v14
+    build:
+      context: .
+      dockerfile: Titanic.Api/Dockerfile
+    ports:
+      - 8282:80
+    environment:
+      MongoDB__Host: mongo
+    depends_on:
+      - mongo
+    volumes:
+      - mongodbdata:/data/db
+
+volumes:
+  mongodbdata:
