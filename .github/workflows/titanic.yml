@@ -27,7 +27,7 @@ jobs:
     - name: docker login
       run:
         docker build -t app .
-        docker login -u cheloghm -p dckr_pat_-9dFMXYSDjT1Mvcd8uuPqS00jKo
+        docker login --username cheloghm --password dckr_pat_-9dFMXYSDjT1Mvcd8uuPqS00jKo
         docker tag app cheloghm/titanic
         docker push cheloghm/titanic
     - name: Test
