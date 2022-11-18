@@ -6,15 +6,15 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/bin/Debug/net6.0/C_Solution.dll",
+            "program": "${workspaceFolder}/Titanic.Api/bin/Debug/net6.0/Titanic.Api.dll",
             "args": [],
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/Titanic.Api",
             "stopAtEntry": false,
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development"
             },
             "sourceFileMap": {
-                "/Views": "${workspaceFolder}/Views"
+                "/Views": "${workspaceFolder}/Titanic.Api/Views"
             }
         },
         {
@@ -28,7 +28,7 @@
             "request": "launch",
             "preLaunchTask": "docker-run: debug",
             "netCore": {
-                "appProject": "${workspaceFolder}/C_Solution.csproj"
+                "appProject": "${workspaceFolder}/Titanic.Api/Titanic.Api.csproj"
             }
         }
     ]

@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/C_Solution.csproj",
+                "${workspaceFolder}/build.proj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -23,7 +23,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/C_Solution.csproj",
+                "${workspaceFolder}/Titanic.Api/Titanic.Api.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -37,7 +37,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/C_Solution.csproj"
+                "${workspaceFolder}/Titanic.Api/Titanic.Api.csproj"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -50,12 +50,12 @@
             "dockerBuild": {
                 "tag": "csolution:dev",
                 "target": "base",
-                "dockerfile": "${workspaceFolder}/Dockerfile",
+                "dockerfile": "${workspaceFolder}/Titanic.Api/Dockerfile",
                 "context": "${workspaceFolder}",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/C_Solution.csproj"
+                "appProject": "${workspaceFolder}/Titanic.Api/Titanic.Api.csproj"
             }
         },
         {
@@ -66,12 +66,12 @@
             ],
             "dockerBuild": {
                 "tag": "csolution:latest",
-                "dockerfile": "${workspaceFolder}/Dockerfile",
+                "dockerfile": "${workspaceFolder}/Titanic.Api/Dockerfile",
                 "context": "${workspaceFolder}",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/C_Solution.csproj"
+                "appProject": "${workspaceFolder}/Titanic.Api/Titanic.Api.csproj"
             }
         },
         {
@@ -82,8 +82,9 @@
             ],
             "dockerRun": {},
             "netCore": {
-                "appProject": "${workspaceFolder}/C_Solution.csproj",
-                "enableDebugging": true
+                "appProject": "${workspaceFolder}/Titanic.Api/Titanic.Api.csproj",
+                "enableDebugging": true,
+                "configureSsl": false
             }
         },
         {
@@ -94,7 +95,7 @@
             ],
             "dockerRun": {},
             "netCore": {
-                "appProject": "${workspaceFolder}/C_Solution.csproj"
+                "appProject": "${workspaceFolder}/Titanic.Api/Titanic.Api.csproj"
             }
         }
     ]
