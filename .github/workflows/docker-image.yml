@@ -18,5 +18,5 @@ jobs:
       run: 
         docker build . --file Titanic.Api/ titanic
         docker --tag titanic cheloghm/titanic:$(date +%s)
-        docker login --username cheloghm -p dckr_pat_-9dFMXYSDjT1Mvcd8uuPqS00jKo
+        docker login --username ${{ secrets.DOCKER_USERNAME}} -p ${{ secrets.DOCKER_SECRET }}
         docker push -a
