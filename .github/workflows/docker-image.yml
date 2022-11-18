@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: 
-        docker build . --file Titanic.Api/ titanic .
+        docker build . --file Titanic.Api/ titanic
         docker login -u cheloghm -p dckr_pat_-9dFMXYSDjT1Mvcd8uuPqS00jKo
         docker --tag titanic cheloghm/titanic:$(date +%s)
         docker push -a
