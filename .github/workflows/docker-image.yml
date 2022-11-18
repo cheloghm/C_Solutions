@@ -19,8 +19,7 @@ jobs:
         docker login --username ${{ secrets.DOCKER_USERNAME}} -p ${{ secrets.DOCKER_SECRET }}
     - name: docker image build
       run:
-        docker build . --file Titanic.Api/ titanic .
-        docker --tag titanic cheloghm/titanic:$(date +%s)
+        docker build -t cheloghm/titanic:$(date +%s) . --file Titanic.Api/
     - name: docker image publish
       run: docker push -a
 
