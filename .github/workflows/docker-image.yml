@@ -15,11 +15,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: docker login
-      run: 
-        cd Titanic.Api/
+      run:
         docker login --username ${{ secrets.DOCKER_USERNAME}} -p ${{ secrets.DOCKER_SECRET }}
     - name: docker image build
       run:
+        cd Titanic.Api
         docker build -t cheloghm/titanic:$(date +%s) .
     - name: docker image publish
       run: docker push -a
