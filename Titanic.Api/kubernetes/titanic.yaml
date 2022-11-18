@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: titanic
-          image: cheloghm/titanic:v9
+          image: cheloghm/titanic:v12
           resources:
             limits:
               memory: "128Mi"

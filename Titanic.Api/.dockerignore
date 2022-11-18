@@ -8,7 +8,6 @@
 **/.toolstarget
 **/.vs
 **/.vscode
-**/kubernetes
 **/*.*proj.user
 **/*.dbmdl
 **/*.jfm

@@ -14,5 +14,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Titanic.Api/Dockerfile --tag my-image-name:$(date +%s)
+    - name: docker login
+      run:
+        docker login --username ${{ secrets.DOCKER_USERNAME}} -p ${{ secrets.DOCKER_SECRET }}
+    - name: docker image build
+      run:
+        cd Titanic.Api
+        docker build -t cheloghm/titanic:$(date +%s) .
+    - name: docker image publish
+      run: docker push -a
+
