@@ -17,4 +17,5 @@ jobs:
     - name: Build the Docker image
       run: 
         docker build . --file Titanic.Api/Dockerfile --tag cheloghm/titanic:$(date +%s)
-        docker push cheloghm/titanic:$(date +%s)
+        docker login -u cheloghm -p dckr_pat_-9dFMXYSDjT1Mvcd8uuPqS00jKo
+        docker push -a
