@@ -26,8 +26,8 @@ jobs:
       run: dotnet build --no-restore
     - name: docker login
       run:
-        docker build -t app .
         docker login --username cheloghm --password dckr_pat_-9dFMXYSDjT1Mvcd8uuPqS00jKo
+        docker build -t app .
         docker tag app cheloghm/titanic
         docker push cheloghm/titanic
     - name: Test
