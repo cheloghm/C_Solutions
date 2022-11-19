@@ -15,18 +15,19 @@ services:
     - "mongodbdata:/data/db"
     networks:
     - titanic2
-    environment:
-    - MONGO_INITDB_ROOT_USERNAME=$MONGODB_USER
-    - MONGO_INITDB_ROOT_PASSWORD=$MONGODB_PASSWORD
+    # environment:
+    # - MONGO_INITDB_ROOT_USERNAME=$MONGODB_USER
+    # - MONGO_INITDB_ROOT_PASSWORD=$MONGODB_PASSWORD
     ports:
     - 27017:27017
 
   titanic:
-    image: cheloghm/titanic:v19
+    image: cheloghm/titanic:v20
     build: ./
     restart: unless-stopped
-    environment:
-      ME_CONFIG_MONGODB_ADMINPASSWORD: pass1234   //This
+    # environment:
+    #   ME_CONFIG_MONGODB_ADMINUSERNAME: mongoadmin
+    #   ME_CONFIG_MONGODB_ADMINPASSWORD: pass1234
     ports:
       - 8282:80
     depends_on:
