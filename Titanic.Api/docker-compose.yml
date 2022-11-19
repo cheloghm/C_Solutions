@@ -1,0 +1,35 @@
+version: "3.8"
+
+volumes:
+  mongodbdata:
+
+networks:
+  titanic2:
+    driver: bridge
+
+services:
+  mongodb:
+    image: mongo
+    restart: unless-stopped
+    volumes:
+    - "mongodbdata:/data/db"
+    networks:
+    - titanic2
+    environment:
+    - MONGO_INITDB_ROOT_USERNAME=$MONGODB_USER
+    - MONGO_INITDB_ROOT_PASSWORD=$MONGODB_PASSWORD
+    ports:
+    - 27017:27017
+
+  titanic:
+    image: cheloghm/titanic:v19
+    build: ./
+    restart: unless-stopped
+    environment:
+      ME_CONFIG_MONGODB_ADMINPASSWORD: pass1234   //This
+    ports:
+      - 8282:80
+    depends_on:
+      - mongodb
+    networks:
+      - titanic2
