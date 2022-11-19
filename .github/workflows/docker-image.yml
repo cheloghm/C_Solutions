@@ -17,6 +17,8 @@ jobs:
     - name: docker login
       run:
         docker login --username ${{ secrets.DOCKER_USERNAME}} -p ${{ secrets.DOCKER_SECRET }}
+    - name: cd into right directory
+      run: cd Titanic.Api 
     - name: docker image build
       run:
         cd Titanic.Api
