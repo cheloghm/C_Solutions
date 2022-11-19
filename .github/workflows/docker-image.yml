@@ -20,7 +20,7 @@ jobs:
     - name: docker image build
       run:
         cd Titanic.Api
-        docker build -t cheloghm/titanic:$(date +%s) .
+        docker build -t cheloghm/titanic:$(date +%s) -f Dockerfile .
     - name: docker image publish
       run: docker push -a
 
