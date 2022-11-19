@@ -6,8 +6,8 @@ ENV ASPNETCORE_URLS=http://+:80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["Titanic.Api.csproj", "Titanic.Api/"]
-RUN dotnet restore "Titanic.Api/Titanic.Api.csproj"
+COPY ["Titanic.Api.csproj", "./"]
+RUN dotnet restore "./Titanic.Api.csproj"
 COPY . .
 # WORKDIR "/src/Titanic.Api"
 # RUN dotnet build "Titanic.Api.csproj" -c Release -o /app/build
