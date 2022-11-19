@@ -18,7 +18,8 @@ jobs:
       run:
         docker login --username ${{ secrets.DOCKER_USERNAME}} -p ${{ secrets.DOCKER_SECRET }}
     - name: cd into right directory
-      run: cd Titanic.Api 
+      run: 
+        cd Titanic.Api 
     - name: docker image build
       run:
         docker build -t cheloghm/titanic:$(date +%s) -f Dockerfile .
