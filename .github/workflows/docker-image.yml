@@ -22,8 +22,8 @@ jobs:
 #         cd Titanic.Api 
     - name: docker image build
       run:
-        docker build -t cheloghm/titanic:$(date +%s) -f Titanic.Api/Dockerfile .
+        docker build -t cheloghm/titanic:v$(date +%s) -f Titanic.Api/Dockerfile .
         
     - name: docker image publish
-      run: docker push -a
+      run: docker push cheloghm/titanic:v$(date +%s)
 

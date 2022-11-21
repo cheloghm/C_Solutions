@@ -7,12 +7,12 @@ using MongoDB.Driver;
 using Titanic.Api.Repositories;
 using System.Globalization;
 
-namespace Titanic.Api.Api.Repositories
+namespace Titanic.Api.Repositories
 {
     public class MongoDbPassengersRepository : IPassengersRepository
     {
         private const string databaseName = "titanic";
-        private const string collectionName = "passengers";
+        private const string collectionName = "data";
         private readonly IMongoCollection<Passenger> passengersCollection;
         private readonly FilterDefinitionBuilder<Passenger> filterBuilder = Builders<Passenger>.Filter;
 
@@ -27,13 +27,13 @@ namespace Titanic.Api.Api.Repositories
             await passengersCollection.InsertOneAsync(passenger);
         }
 
-        public async Task DeletePassengerAsync(Guid id)
+        public async Task DeletePassengerAsync(string id)
         {
             var filter = filterBuilder.Eq(passenger => passenger.Id, id);
             await passengersCollection.DeleteOneAsync(filter);
         }
 
-        public async Task<Passenger> GetPassengerAsync(Guid id)
+        public async Task<Passenger> GetPassengerAsync(string id)
         {
             var filter = filterBuilder.Eq(passenger => passenger.Id, id);
             return await passengersCollection.Find(filter).SingleOrDefaultAsync();

@@ -9,7 +9,10 @@ WORKDIR /src
 COPY ["Titanic.Api.csproj", "./"]
 RUN dotnet restore "./Titanic.Api.csproj"
 COPY . .
-WORKDIR "/src/."
+# WORKDIR "/src/Titanic.Api"
+# RUN dotnet build "Titanic.Api.csproj" -c Release -o /app/build
+
+# FROM build AS publish
 RUN dotnet publish "Titanic.Api.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final

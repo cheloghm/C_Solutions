@@ -39,3 +39,4 @@
 /home/cheloghm/learn/ci-cd/C_Solution/Titanic.Api/obj/Debug/net6.0/Titanic.Api.pdb
 /home/cheloghm/learn/ci-cd/C_Solution/Titanic.Api/obj/Debug/net6.0/Titanic.Api.genruntimeconfig.cache
 /home/cheloghm/learn/ci-cd/C_Solution/Titanic.Api/obj/Debug/net6.0/ref/Titanic.Api.dll
+/home/cheloghm/learn/ci-cd/C_Solution/Titanic.Api/bin/Debug/net6.0/CsvHelper.dll

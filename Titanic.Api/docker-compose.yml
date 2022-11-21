@@ -9,7 +9,8 @@ networks:
 
 services:
   mongodb:
-    image: mongo
+    container_name: mongo
+    image: cheloghm/mongo:v4
     restart: unless-stopped
     volumes:
     - "mongodbdata:/data/db"
@@ -22,12 +23,14 @@ services:
     - 27017:27017
 
   titanic:
-    image: cheloghm/titanic:v20
+    image: cheloghm/titanic:v26
     build: ./
     restart: unless-stopped
     # environment:
     #   ME_CONFIG_MONGODB_ADMINUSERNAME: mongoadmin
     #   ME_CONFIG_MONGODB_ADMINPASSWORD: pass1234
+    # environment:
+      # MDB_CONNECTION: mongodb://$MONGODB_USER:$MONGODB_PASSWORD@titanic:27017
     ports:
       - 8282:80
     depends_on:
