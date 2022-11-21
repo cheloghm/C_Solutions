@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Titanic.Api.Api.Dtos;
+using Titanic.Api.Dtos;
 using Titanic.Api.Models;
 using Titanic.Api.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Titanic.Api.Api;
+using Titanic.Api;
 
 namespace Titanic.Api.Controllers
 {
@@ -44,7 +44,7 @@ namespace Titanic.Api.Controllers
 
             if (!string.IsNullOrWhiteSpace(fullname))
             {
-                passengers = passengers.Where(passenger => passenger.FullName.Contains(fullname, StringComparison.OrdinalIgnoreCase));
+                passengers = passengers.Where(passenger => passenger.Name.Contains(fullname, StringComparison.OrdinalIgnoreCase));
             }
 
             logger.LogInformation($"{DateTime.UtcNow.ToString("hh:mm:ss")}: Retrieved {passengers.Count()} passengers");
@@ -54,7 +54,7 @@ namespace Titanic.Api.Controllers
 
         // GET /passengers/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<PassengerDto>> GetPassengerAsync(Guid id)
+        public async Task<ActionResult<PassengerDto>> GetPassengerAsync(string id)
         {
             var passenger = await _ipassengersRepository.GetPassengerAsync(id);
 
@@ -72,10 +72,10 @@ namespace Titanic.Api.Controllers
         {
             Passenger passenger = new()
             {
-                Id = Guid.NewGuid(),
+                // Id = Guid.NewGuid(),
                 Survived = passengerDto.Survived,
                 Pclass = passengerDto.Pclass,
-                FullName = passengerDto.FullName,
+                Name = passengerDto.Name,
                 Sex = passengerDto.Sex,
                 Age = passengerDto.Age,
                 Siblings_Spouses_Aboard = passengerDto.Siblings_Spouses_Aboard,
@@ -90,7 +90,7 @@ namespace Titanic.Api.Controllers
 
         // PUT /passengers/{id}
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdatePassengerAsync(Guid id, UpdatePassengerDto passengerDto)
+        public async Task<ActionResult> UpdatePassengerAsync(string id, UpdatePassengerDto passengerDto)
         {
             var existingPassenger = await _ipassengersRepository.GetPassengerAsync(id);
 
@@ -99,7 +99,7 @@ namespace Titanic.Api.Controllers
                 return NotFound();
             }
 
-            existingPassenger.FullName = passengerDto.FullName;
+            existingPassenger.Name = passengerDto.Name;
             existingPassenger.Sex = passengerDto.Sex;
             existingPassenger.Age = passengerDto.Age;
             existingPassenger.Survived = passengerDto.Survived;
@@ -115,7 +115,7 @@ namespace Titanic.Api.Controllers
 
         // DELETE /passengers/{id}
         [HttpDelete("{id}")]
-        public async Task<ActionResult> DeletePassengerAsync(Guid id)
+        public async Task<ActionResult> DeletePassengerAsync(string id)
         {
             var existingPassenger = await _ipassengersRepository.GetPassengerAsync(id);
 

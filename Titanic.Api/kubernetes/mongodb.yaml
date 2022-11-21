@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: mongodb
-          image: cheloghm/mongo:v2
+          image: cheloghm/mongo:v4
           resources:
             limits:
               memory: "128Mi"

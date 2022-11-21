@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "KQQPWU/p/mRuM94A6MVJT3uJMq6nT3UK6MVAOT9ruLzMQ85sLDPrn2p2QjQ5birhAlCqhqAIWCADNXoRJ29m4w==",
+  "dgSpecHash": "+55FMkYELnGsDMHN4rmpY7IFk1fYVGoXD1U6JCGOuq691nBKWy5LmZAa5RaT9/bkI8soBAnTxfqCCUe28v6xhQ==",
   "success": true,
   "projectFilePath": "/home/cheloghm/learn/ci-cd/C_Solution/Titanic.UnitTests/Titanic.UnitTests.csproj",
   "expectedPackageFiles": [
     "/home/cheloghm/.nuget/packages/aspnetcore.healthchecks.mongodb/6.0.2/aspnetcore.healthchecks.mongodb.6.0.2.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/castle.core/5.1.0/castle.core.5.1.0.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/coverlet.collector/3.1.2/coverlet.collector.3.1.2.nupkg.sha512",
+    "/home/cheloghm/.nuget/packages/csvhelper/30.0.1/csvhelper.30.0.1.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/dnsclient/1.6.1/dnsclient.1.6.1.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/fluentassertions/6.8.0/fluentassertions.6.8.0.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/microsoft.codecoverage/17.1.0/microsoft.codecoverage.17.1.0.nupkg.sha512",

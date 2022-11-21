@@ -7,11 +7,11 @@ namespace Titanic.Api.Repositories
 {
     public interface IPassengersRepository
     {
-        Task<Passenger> GetPassengerAsync(Guid id);
+        Task<Passenger> GetPassengerAsync(string id);
         Task<IEnumerable<Passenger>> GetPassengersAsync();
         Task CreatePassengerAsync(Passenger passenger);
         Task UpdatePassengerAsync(Passenger passenger);
-        Task DeletePassengerAsync(Guid id);
+        Task DeletePassengerAsync(string id);
         //object ReadCSV<T>(Stream stream);
         //public IEnumerable<T> ReadCSV<T>(Stream file);
     }

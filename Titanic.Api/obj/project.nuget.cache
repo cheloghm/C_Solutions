@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "oNYxlKmElY3AN4Eqsn0YTwpqLIDbktGyl2n4Mrr4TZNf8a/zKQNwjLn23uYQaA0dqKcXvZnRYECJA9lblQCDvg==",
+  "dgSpecHash": "hypJTL8aFfmpx9m774ztF3HIwv6o+dro4sN78Ijx/y7apSTWRFamqhLHSERKiYxr0IhaTyaOQiSmuB/AYsBhkw==",
   "success": true,
   "projectFilePath": "/home/cheloghm/learn/ci-cd/C_Solution/Titanic.Api/Titanic.Api.csproj",
   "expectedPackageFiles": [
     "/home/cheloghm/.nuget/packages/aspnetcore.healthchecks.mongodb/6.0.2/aspnetcore.healthchecks.mongodb.6.0.2.nupkg.sha512",
+    "/home/cheloghm/.nuget/packages/csvhelper/30.0.1/csvhelper.30.0.1.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/dnsclient/1.6.1/dnsclient.1.6.1.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "/home/cheloghm/.nuget/packages/microsoft.extensions.configuration.abstractions/6.0.0/microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",

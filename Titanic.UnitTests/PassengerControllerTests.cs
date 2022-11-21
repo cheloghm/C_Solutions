@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Titanic.Api.Controllers;
-using Titanic.Api.Api.Dtos;
+using Titanic.Api.Dtos;
 using Titanic.Api.Models;
 using Titanic.Api.Repositories;
 using FluentAssertions;
@@ -23,13 +23,13 @@ namespace Titanic.UnitTests
         public async Task GetPassengerAsync_WithUnexistingPassenger_ReturnsNotFound()
         {
             // Arrange
-            repositoryStub.Setup(repo => repo.GetPassengerAsync(It.IsAny<Guid>()))
+            repositoryStub.Setup(repo => repo.GetPassengerAsync(It.IsAny<string>()))
                 .ReturnsAsync((Passenger)null);
 
             var controller = new PassengersController(repositoryStub.Object, loggerStub.Object);
 
             // Act
-            var result = await controller.GetPassengerAsync(Guid.NewGuid());
+            var result = await controller.GetPassengerAsync("637a982d7ba41f32d78d4589");
 
             // Assert
             result.Result.Should().BeOfType<NotFoundResult>();
@@ -41,13 +41,13 @@ namespace Titanic.UnitTests
             // Arrange
             Passenger expectedPassenger = CreateRandomPassenger();
 
-            repositoryStub.Setup(repo => repo.GetPassengerAsync(It.IsAny<Guid>()))
+            repositoryStub.Setup(repo => repo.GetPassengerAsync(It.IsAny<string>()))
                 .ReturnsAsync(expectedPassenger);
 
             var controller = new PassengersController(repositoryStub.Object, loggerStub.Object);
 
             // Act
-            var result = await controller.GetPassengerAsync(Guid.NewGuid());
+            var result = await controller.GetPassengerAsync("637a982d7ba41f32d78d4589");
 
             // Assert
             result.Value.Should().BeEquivalentTo(expectedPassenger);
@@ -77,9 +77,9 @@ namespace Titanic.UnitTests
             // Arrange
             var allPassengers = new[]
             {
-                new Passenger(){ FullName = "Jack"},
-                new Passenger(){ FullName = "Rose"},
-                new Passenger(){ FullName = "Soung"}
+                new Passenger(){ Name = "Jack"},
+                new Passenger(){ Name = "Rose"},
+                new Passenger(){ Name = "Soung"}
             };
 
             var nameToMatch = "Jack";
@@ -94,7 +94,7 @@ namespace Titanic.UnitTests
 
             // Assert
             foundPassengers.Should().OnlyContain(
-                passenger => passenger.FullName == allPassengers[0].FullName || passenger.FullName == allPassengers[2].FullName
+                passenger => passenger.Name == allPassengers[0].Name || passenger.Name == allPassengers[2].Name
             );
         }
 
@@ -105,7 +105,7 @@ namespace Titanic.UnitTests
             var passengerToCreate = new CreatePassengerDto(
                 1,
                 3,
-                Guid.NewGuid().ToString(),
+                "637a982d7ba41f32d78d4589",
                 "female",
                 35,
                 1,
@@ -131,14 +131,14 @@ namespace Titanic.UnitTests
         {
             // Arrange
             Passenger existingPassenger = CreateRandomPassenger();
-            repositoryStub.Setup(repo => repo.GetPassengerAsync(It.IsAny<Guid>()))
+            repositoryStub.Setup(repo => repo.GetPassengerAsync(It.IsAny<string>()))
                 .ReturnsAsync(existingPassenger);
 
             var passengerId = existingPassenger.Id;
             var passengerToUpdate = new UpdatePassengerDto(
                 1,
                 3,
-                Guid.NewGuid().ToString(),
+                "637a982d7ba41f32d78d4589",
                 "female",
                 35,
                 1,
@@ -160,7 +160,7 @@ namespace Titanic.UnitTests
         {
             // Arrange
             Passenger existingPassenger = CreateRandomPassenger();
-            repositoryStub.Setup(repo => repo.GetPassengerAsync(It.IsAny<Guid>()))
+            repositoryStub.Setup(repo => repo.GetPassengerAsync(It.IsAny<string>()))
                 .ReturnsAsync(existingPassenger);
 
             var controller = new PassengersController(repositoryStub.Object, loggerStub.Object);
@@ -176,8 +176,8 @@ namespace Titanic.UnitTests
         {
             return new()
             {
-                Id = Guid.NewGuid(),
-                FullName = Guid.NewGuid().ToString(),
+                Id = "637a982d7ba41f32d78d4589",
+                Name = Guid.NewGuid().ToString(),
                 Survived = 0,
                 Pclass = 2,
                 Sex = "male",

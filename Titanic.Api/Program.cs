@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using System.Net.Mime;
 using System.Text.Json;
 using Microsoft.AspNetCore.Builder;
-using Titanic.Api.Api.Repositories;
+using Titanic.Api.Repositories;
 using System;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
