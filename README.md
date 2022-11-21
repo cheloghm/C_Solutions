@@ -49,6 +49,30 @@ This is a boilerplate template for building / deploying a .NET Core Web API on K
     └── Usings.cs
 ```
 
+## Deploying a .NET Core Web API microservice on Kubernetes
+
+### Prerequisite:
+
+- Docker
+- .NET Core 6
+
+
+## to run in production
+```sh
+$ cd Titanic.Api
+$ docker-compose up -d
+```
+
+## Checking the Readiness and Liveness of the App.
+###To check if the API is live
+    ```sh
+    {url/endpoint}/healt/live
+    ```
+###To check is the database is ready to serve requests
+    ```sh
+    {url/endpoint}/healt/ready
+    ```
+
 - The `docker-compose.yml` is for building both db and api.
 - `Dockerfile` is .NET Core Web API Multistage Dockerfile (following Docker Best Practices)
 - `appsettings.Development.json` is .NET Core Web API development environment config
@@ -87,32 +111,8 @@ $ git clone https://github.com/cheloghm/C_Solutions.git
         $ dotnet test 
         ```
 
-## to run in production
-
-```sh
-$ cd Titanic.Api
-$ docker-compose up -d
-```
-
 To run in a K8s cluster
 Ensure you create the secret: kubectl create secret generic titanic-secrets --from-literal=mongodb-password='pass1234'
-
-## Checking the Readiness and Liveness of the App.
-###To check if the API is live
-    ```sh
-    {url/endpoint}/healt/live
-    ```
-###To check is the database is ready to serve requests
-    ```sh
-    {url/endpoint}/healt/ready
-    ```
-
-## Deploying a .NET Core Web API microservice on Kubernetes
-
-### Prerequisite:
-
-- Docker
-- .NET Core 6
 
 More information on that coming soon.
 
