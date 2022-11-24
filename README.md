@@ -1,6 +1,13 @@
 # .NET 6 Web API
 
-This is a boilerplate template for building / deploying a .NET Core Web API on Kubernetes.
+This is a .Net 6 web API app. With a pre-populated MongoDB database with the details of the Titanic passengers.
+The Api endpoints are:
+To get all: https://localhost:8282/passengers/all 
+To get by ID: https://localhost:8282/passengers/{Id}
+To search by characters or words: https://localhost:8282/passengers/search
+To edit or update: https://localhost:8282/passengers/{Id}
+To delete: https://localhost:8282/passengers/{id}
+Note! the above endpoints are for those running the application using the docker-compose file.
 
 ## Versioning
 | GitHub Release | .NET Core Version | Diagnostics HealthChecks Version |
